@@ -1,0 +1,26 @@
+# Runtime outputs
+data/
+logs/
+annotations/
+
+# Hugging Face upload staging/cache
+hf_upload/
+
+# Large model weights (download separately; see README)
+scripts/separate/*.onnx
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local environment / editor files
+.env
+.venv/
+venv/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
