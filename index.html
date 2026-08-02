@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="VoxDub: a bilingual high-fidelity corpus of lip-synchronized speech–video pairs for automatic video dubbing.">
+  <meta name="description" content="VoxDub: a bilingual high-fidelity corpus of lip-synchronized speech–video pairs for video dubbing.">
   <meta name="author" content="VoxDub">
   <title>VoxDub — Lip-Synchronized Audio-Visual Dataset</title>
 
@@ -293,6 +293,12 @@
       border-radius: 12px;
     }
 
+    .highlight-item img.quality-chart {
+      object-fit: contain;
+      background: #ffffff;
+      padding: 0.75rem;
+    }
+
     .pipeline-list {
       display: grid;
       gap: 0.9rem;
@@ -318,29 +324,159 @@
     }
 
     .download {
-      background: #122027;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(15, 118, 110, 0.34), transparent 34%),
+        radial-gradient(circle at 8% 90%, rgba(196, 138, 74, 0.15), transparent 30%),
+        #122027;
       color: #f4f7f8;
+    }
+
+    .download::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      pointer-events: none;
+    }
+
+    .download > .wrap {
+      position: relative;
+      z-index: 1;
     }
 
     .download .section-kicker { color: #8fd0c8; }
     .download .section-copy { color: rgba(244, 247, 248, 0.78); }
 
-    .download-box {
-      margin-top: 2rem;
-      padding: 1.6rem 1.7rem;
+    .access-panel {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      margin-top: 2.2rem;
       border: 1px solid rgba(244, 247, 248, 0.16);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      max-width: 46rem;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(8px);
     }
 
-    .download-box a {
-      color: #f0c48a;
+    .access-repository,
+    .annotation-card {
+      padding: clamp(1.6rem, 4vw, 2.4rem);
+    }
+
+    .access-repository {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .annotation-card {
+      border-right: 1px solid rgba(244, 247, 248, 0.12);
+    }
+
+    .access-label {
+      display: inline-flex;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid rgba(143, 208, 200, 0.35);
+      border-radius: 999px;
+      color: #a9ddd7;
+      font-size: 0.72rem;
       font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .access-repository h3,
+    .annotation-card h3 {
+      font-family: "Fraunces", serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .access-repository p,
+    .annotation-card > p {
+      color: rgba(244, 247, 248, 0.72);
+      font-size: 0.93rem;
+    }
+
+    .project-link {
+      display: block;
+      margin: 1rem 0 1.25rem;
+      color: #f0c48a;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
       word-break: break-all;
     }
 
-    .download-box p + p { margin-top: 0.8rem; }
+    .schema-tree {
+      margin: 1.2rem 0;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid rgba(143, 208, 200, 0.18);
+      border-radius: 12px;
+      background: rgba(5, 14, 18, 0.5);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.9rem;
+    }
+
+    .tree-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      min-height: 1.85rem;
+      color: #d8efec;
+    }
+
+    .tree-line + .tree-line { margin-top: 0.25rem; }
+    .tree-line.depth-1 { padding-left: 1.2rem; }
+    .tree-line.depth-2 { padding-left: 2.4rem; }
+
+    .tree-line small {
+      color: rgba(244, 247, 248, 0.46);
+      font-family: "Sora", sans-serif;
+      font-size: 0.72rem;
+    }
+
+    .field-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .field-label {
+      margin-bottom: 0.65rem;
+      color: rgba(244, 247, 248, 0.62);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .field-chips span {
+      padding: 0.38rem 0.65rem;
+      border-radius: 6px;
+      background: rgba(143, 208, 200, 0.1);
+      color: #bde3de;
+      font-size: 0.76rem;
+      font-weight: 500;
+    }
+
+    .field-chips code {
+      display: block;
+      margin-bottom: 0.12rem;
+      color: #f0c48a;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
 
     .copyright {
       background: var(--panel);
@@ -376,12 +512,6 @@
       flex-wrap: wrap;
     }
 
-    footer a {
-      color: var(--teal-deep);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
     .reveal {
       opacity: 0;
       transform: translateY(18px);
@@ -411,11 +541,17 @@
     @media (max-width: 900px) {
       .about-grid,
       .highlight-grid,
+      .access-panel,
       .stats {
         grid-template-columns: 1fr;
       }
 
       .stats { gap: 1.4rem; }
+
+      .annotation-card {
+        border-right: 0;
+        border-bottom: 1px solid rgba(244, 247, 248, 0.12);
+      }
 
       .nav-toggle { display: inline-flex; }
 
@@ -454,7 +590,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#highlights">Highlights</a></li>
-        <li><a href="#download">Download</a></li>
+        <li><a href="#download">Access</a></li>
         <li><a href="#copyright">Copyright</a></li>
       </ul>
     </div>
@@ -467,7 +603,7 @@
     <div class="wrap hero-content">
       <h1>VoxDub</h1>
       <p class="tagline">
-        A bilingual corpus of high-fidelity, lip-synchronized speech–video pairs for automatic video dubbing.
+        A bilingual corpus of high-fidelity, lip-synchronized speech–video pairs for video dubbing.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/voxdub-dataset/VoxDub" target="_blank" rel="noopener noreferrer">
@@ -482,7 +618,7 @@
     <div class="wrap about-grid reveal">
       <div>
         <p class="section-kicker">About</p>
-        <h2 class="section-title">Built for AVD and multimodal speech research</h2>
+        <h2 class="section-title">Built for multimodal speech research</h2>
         <p class="section-copy">
           Collected from in-the-wild videos, VoxDub is curated for clean speech, reliable transcripts,
           continuous face visibility, and tight lip–audio timing. It covers Chinese and English,
@@ -527,16 +663,16 @@
           <img src="assets/img/feature-pipeline.jpg" alt="Abstract multi-stage data processing pipeline">
           <h3>Multi-stage pipeline</h3>
           <p>
-            Processing spans vocal separation, speech-centered segmentation, dual-ASR checks,
-            DNSMOS filtering, face continuity screening, and SyncNet confidence scoring.
+            We employ a multi-stage processing pipeline to achieve higher audio quality and more
+            accurate text annotations while preserving lip–speech synchronization.
           </p>
         </article>
         <article class="highlight-item">
-          <img src="assets/img/feature-lipsync.jpg" alt="Illustration of lip–audio alignment quality control">
-          <h3>Reliable multimodal pairs</h3>
+          <img class="quality-chart" src="assets/img/fig-dataset-quality.png" alt="Distributions of WER, DNSMOS, and LSE-C in VoxDub">
+          <h3>Dataset quality</h3>
           <p>
-            Kept samples favor intelligible audio, consistent annotations, a single visible speaker,
-            and strong visual–acoustic correspondence for AVD training.
+            Nearly 35% of clips have zero WER, more than 80% score above 3.0 in DNSMOS,
+            and over 70% achieve an LSE-C score higher than 5.0.
           </p>
         </article>
       </div>
@@ -554,21 +690,46 @@
   <section class="download" id="download">
     <div class="wrap reveal">
       <p class="section-kicker">Access</p>
-      <h2 class="section-title">How to obtain VoxDub</h2>
+      <h2 class="section-title">Clip metadata, then dataset access</h2>
       <p class="section-copy">
-        Release files, setup notes, and usage guidance are published on GitHub.
+        VoxDub provides structured JSON metadata for every retained clip. Dataset acquisition
+        instructions and additional details are available in the project repository.
       </p>
-      <div class="download-box">
-        <p>
-          Project page:
-          <a href="https://github.com/voxdub-dataset/VoxDub" target="_blank" rel="noopener noreferrer">
-            https://github.com/voxdub-dataset/VoxDub
-          </a>
-        </p>
-        <p>
-          See the README there for the latest acquisition steps and license terms.
-        </p>
-        <div class="cta-row" style="margin-top: 1.2rem;">
+      <div class="access-panel">
+        <div class="annotation-card">
+          <span class="access-label">JSON metadata</span>
+          <h3>One file per retained segment</h3>
+          <p>Each source-video UID groups its clips, with a JSON record attached to every segment.</p>
+
+          <div class="schema-tree" aria-label="Annotation directory structure">
+            <div class="tree-line"><span>datas/</span><small>annotation root</small></div>
+            <div class="tree-line depth-1"><span>└─ {uid}/</span><small>source video</small></div>
+            <div class="tree-line depth-2"><span>└─ {segment_id}.json</span><small>clip metadata</small></div>
+          </div>
+
+          <p class="field-label">Each segment JSON contains</p>
+          <div class="field-chips" aria-label="Annotation contents">
+            <span>Timing</span>
+            <span>Transcripts</span>
+            <span>DNSMOS Scores</span>
+            <span>Sync scores</span>
+            <span>Face tracking</span>
+            <span aria-label="Additional annotation fields">…</span>
+          </div>
+          <p class="annotation-more">
+            Detailed field descriptions and examples are included with the dataset repository.
+          </p>
+        </div>
+
+        <div class="access-repository">
+          <span class="access-label">GitHub repository</span>
+          <h3>Get VoxDub</h3>
+          <p>
+            Follow the README for the latest acquisition steps, release notes, and license terms.
+          </p>
+          <span class="project-link">
+            github.com/voxdub-dataset/VoxDub
+          </span>
           <a class="btn btn-primary" href="https://github.com/voxdub-dataset/VoxDub" target="_blank" rel="noopener noreferrer">
             Open on GitHub
           </a>
@@ -597,8 +758,7 @@
           We aim to keep metadata accurate, but cannot guarantee that source videos will remain available.
         </p>
         <p>
-          Full licensing details and acquisition instructions:
-          <a href="https://github.com/voxdub-dataset/VoxDub" target="_blank" rel="noopener noreferrer">https://github.com/voxdub-dataset/VoxDub</a>.
+          Full licensing details and acquisition instructions are provided in the project repository.
         </p>
       </div>
     </div>
@@ -607,7 +767,7 @@
   <footer>
     <div class="wrap">
       <span>© VoxDub Dataset. CC BY-NC-SA 4.0.</span>
-      <a href="https://github.com/voxdub-dataset/VoxDub" target="_blank" rel="noopener noreferrer">github.com/voxdub-dataset/VoxDub</a>
+      <span>VoxDub Project</span>
     </div>
   </footer>
 
