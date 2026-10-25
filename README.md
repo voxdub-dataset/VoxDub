@@ -2,7 +2,7 @@
 
 **A bilingual lip-synchronized audio-visual dataset for automatic video dubbing.**
 
-[Project Page](https://voxdub-dataset.github.io/VoxDub/) · [Dataset on Hugging Face](https://huggingface.co/datasets/zyk21/VoxDub) · [Dataset Card](./DATASET_CARD.md) · [Quick Start](#quick-start) · [Issues](https://github.com/voxdub-dataset/VoxDub/issues)
+[Paper](https://arxiv.org/abs/2610.25259) · [Project Page](https://voxdub-dataset.github.io/VoxDub/) · [Dataset on Hugging Face](https://huggingface.co/datasets/zyk21/VoxDub) · [Dataset Card](./DATASET_CARD.md) · [Quick Start](#quick-start) · [Issues](https://github.com/voxdub-dataset/VoxDub/issues)
 
 VoxDub contains approximately **766K clips** and **1.58K hours** of Chinese and English audio-visual recordings collected from in-the-wild videos. It is designed for automatic video dubbing (AVD), with downstream evaluations on both text-to-speech (TTS) and AVD.
 
