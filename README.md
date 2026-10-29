@@ -2,7 +2,7 @@
 
 **A bilingual lip-synchronized audio-visual dataset for automatic video dubbing.**
 
-[Paper](https://arxiv.org/abs/2610.25259) · [Project Page](https://voxdub-dataset.github.io/VoxDub/) · [Dataset on Hugging Face](https://huggingface.co/datasets/zyk21/VoxDub) · [Dataset Card](./DATASET_CARD.md) · [Quick Start](#quick-start) · [Issues](https://github.com/voxdub-dataset/VoxDub/issues)
+[Paper](https://arxiv.org/abs/2610.25259) · [Project Page](https://voxdub-dataset.github.io/VoxDub/) · [Dataset on Hugging Face](https://huggingface.co/datasets/zyk21/VoxDub) · [DubBench](#dubbench) · [Dataset Card](./DATASET_CARD.md) · [Quick Start](#quick-start) · [Issues](https://github.com/voxdub-dataset/VoxDub/issues)
 
 VoxDub contains approximately **766K clips** and **1.58K hours** of Chinese and English audio-visual recordings collected from in-the-wild videos. It is designed for automatic video dubbing (AVD), with downstream evaluations on both text-to-speech (TTS) and AVD.
 
@@ -17,6 +17,7 @@ This repository provides tools to reconstruct clips from the released segment an
 - [Usage](#usage)
 - [Data Format and Outputs](#data-format-and-outputs)
 - [Configuration](#configuration)
+- [DubBench](#dubbench)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
 
@@ -63,6 +64,7 @@ The reconstruction scripts consume existing annotations; they do not rerun the A
 | Annotation archive | `av_segments_v1.tar.zst` |
 | Archive layout | `datas/{video_id}/{segment_id}.json` |
 | Dataset documentation | [DATASET_CARD.md](./DATASET_CARD.md) |
+| DubBench | [Hugging Face](https://huggingface.co/datasets/zyk21/VoxDub#dubbench) |
 
 Each `video_id` identifies a source YouTube video. The JSON files describe the segments to reconstruct from that video.
 
@@ -247,6 +249,16 @@ Defaults are defined in [scripts/config.py](./scripts/config.py).
 | `PROCESS_WORKERS` | `2` | Segment standardization workers |
 
 Common command-line overrides include `--device`, `--workers`, `--proxy`, and the paired `--width` / `--height` options. Check the relevant subcommand's `--help` before use.
+
+## DubBench
+
+We also release the DubBench test set used in our paper. DubBench contains English and Mandarin Chinese evaluation subsets. Each sample pairs a target utterance with a reference utterance.
+
+In our experiments, all systems use the reference audio, reference text, and target text as inputs. AVD additionally uses the target video. The generated audio is evaluated against the ground-truth target audio.
+
+The English subset is derived from [CelebV-Dub](https://voicecraft-dub.github.io/), while the Chinese subset is derived from [CMLR](https://www.vipazoo.cn/CMLR.html).
+
+For the data structure, metadata format, download instructions, attribution, and usage terms, please refer to the [website](https://huggingface.co/datasets/zyk21/VoxDub#dubbench).
 
 ## Acknowledgments
 
